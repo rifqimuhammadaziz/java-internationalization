@@ -28,6 +28,18 @@ public class NumberFormatTest {
     // PARSE
 
     @Test
+    void testNumberParse() {
+        var numberFormat = NumberFormat.getInstance();
+
+        try {
+            var result = numberFormat.parse("10,250").doubleValue();
+            System.out.println(result);
+        } catch (ParseException e) {
+            System.out.println("Error parse : " + e.getMessage());
+        }
+    }
+
+    @Test
     void testNumberParseIndonesia() {
         var indonesia = new Locale("in", "ID");
         var numberFormat = NumberFormat.getInstance(indonesia);
